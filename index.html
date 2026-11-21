@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Achadinhos Koreanos</title>
+<meta name="description" content="Achadinhos de beleza coreana, skincare e moda com clima de dorama. 어서 오세요!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: romântico e divertido, clima de final de episódio de dorama
+   IDEA: a página é um episódio: abertura com cena noturna em Seul, legendas em coreano
+   PICTURE: casal inventado sob guarda-chuva, Seul à noite, lua rosa, pétalas caindo
+   COLOUR and TYPE: noite #1a0b2e, rosa neon #ff4f9a, lavanda #c9b6ff; Black Han Sans + Poppins
+   LAYOUT: hero cinematográfico, faixa de frases, vitrine estilo cartão polaroid, frase do dia, grupo */
+:root{color-scheme:dark;--night:#1a0b2e;--night2:#2b1150;--pink:#ff4f9a;--pink2:#ff8cc0;--lav:#c9b6ff;--cream:#fff4f8;--ink:#2a1630;--muted:#a993c4}
+*{box-sizing:border-box;min-width:0;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--night);color:var(--cream);font:16px/1.55 Poppins,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+.kr{font-family:"Black Han Sans",sans-serif;letter-spacing:.01em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(4vw,16px)}
+
+header{position:sticky;top:0;z-index:20;background:rgba(26,11,46,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,79,154,.25)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:800;font-size:1.05rem}
+.logo b{color:var(--pink)}
+.logo .kr{font-size:.85rem;color:var(--lav);font-weight:400}
+.ig{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;font-weight:600;text-decoration:none;padding:9px 15px;border-radius:999px;background:var(--pink);color:#fff;min-height:40px}
+
+/* HERO */
+.hero{position:relative;min-height:min(88vh,760px);display:grid;align-items:end;overflow:hidden;isolation:isolate}
+.scene{position:absolute;inset:0;z-index:-1}
+.scene svg{width:100%;height:100%;display:block}
+.hero-copy{padding:0 max(4vw,16px) clamp(36px,7vh,72px);max-width:1180px;margin:0 auto;width:100%}
+.ep{display:inline-block;font-size:.75rem;font-weight:600;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:5px 12px;border-radius:999px;margin-bottom:14px}
+.hero h1{font-size:clamp(2.4rem,8vw,4.6rem);line-height:1.02;text-wrap:balance;text-shadow:0 0 28px rgba(255,79,154,.7)}
+.sub{display:block;font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(1rem,2.6vw,1.35rem);color:var(--pink2);margin-top:8px;text-shadow:none}
+.hero p{max-width:520px;margin-top:14px;color:#efe3ff}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none}
+.btn.p{background:var(--pink);color:#fff;box-shadow:0 8px 30px rgba(255,79,154,.45)}
+.btn.s{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.4)}
+.petal{position:absolute;top:-20px;width:14px;height:11px;background:var(--pink2);border-radius:14px 0 14px 0;opacity:.85;pointer-events:none;animation:fall linear infinite}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(540deg)}}
+@media (prefers-reduced-motion:reduce){.petal,.tick-in{animation:none!important}}
+
+/* TICKER */
+.ticker{background:var(--pink);color:#fff;overflow:hidden;white-space:nowrap;padding:12px 0;border-block:2px solid #fff}
+.tick-in{display:inline-flex;gap:38px;animation:tick 40s linear infinite;padding-left:38px}
+.tick-in span{display:inline-flex;align-items:center;gap:10px;font-weight:600}
+.tick-in .kr{font-size:1.15rem}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* PRODUTOS */
+.shop{background:var(--cream);color:var(--ink);padding:clamp(40px,6vw,72px) 0}
+.head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px}
+.head h2{font-size:clamp(1.8rem,4.6vw,2.6rem);line-height:1.05}
+.head h2 small{display:block;font-family:Poppins,sans-serif;font-size:1rem;font-weight:600;color:#9b5a86;margin-top:4px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{min-height:44px;border:2px solid var(--ink);background:#fff;font:600 .92rem Poppins,sans-serif;padding:0 16px;border-radius:999px;cursor:pointer;color:var(--ink)}
+.tab .kr{font-weight:400;margin-right:4px}
+.tab[aria-pressed="true"]{background:var(--ink);color:#fff}
+.tab:focus-visible,.btn:focus-visible,.buy:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));gap:16px}
+@media(min-width:720px){.grid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}}
+.card{background:#fff;padding:10px 10px 14px;border-radius:6px;box-shadow:0 10px 26px rgba(42,22,48,.12);display:flex;flex-direction:column;transition:transform .2s}
+.card:nth-child(odd){transform:rotate(-1.2deg)}.card:nth-child(even){transform:rotate(1deg)}
+.card:hover{transform:rotate(0) translateY(-4px)}
+.ph{aspect-ratio:1/1;border-radius:4px;position:relative;overflow:hidden;display:grid;place-items:center}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph .big{font-family:"Black Han Sans",sans-serif;font-size:clamp(2.2rem,7vw,3.2rem);color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.12)}
+.ph svg.fh{position:absolute;right:8px;bottom:8px;width:34px;height:34px}
+.store{position:absolute;top:8px;left:8px;background:#fff;color:var(--ink);font-size:.7rem;font-weight:700;padding:4px 9px;border-radius:999px}
+.cb{padding:12px 4px 0;display:flex;flex-direction:column;gap:5px;flex:1}
+.cat{font-size:.75rem;font-weight:700;color:var(--pink)}
+.name{font-weight:700;line-height:1.3}
+.why{font-size:.85rem;color:#6d5577}
+.price{font-weight:800;margin-top:auto}
+.buy{display:flex;align-items:center;justify-content:center;min-height:44px;text-decoration:none;font-weight:700;font-size:.9rem;border-radius:999px;background:var(--pink);color:#fff;margin-top:8px}
+.buy.soon{background:#f1e4ee;color:#9b8098;pointer-events:none}
+.note{font-size:.8rem;color:#8a7090;margin-top:18px}
+
+/* FRASE DO DIA */
+.quote{background:linear-gradient(180deg,var(--night2),var(--night));padding:clamp(48px,7vw,88px) 0;text-align:center}
+.quote .lbl{font-size:.85rem;color:var(--lav);font-weight:600}
+.quote .ko{font-size:clamp(2.4rem,8vw,4.4rem);color:#fff;margin:10px 0 4px;text-shadow:0 0 30px rgba(201,182,255,.6)}
+.quote .ro{color:var(--lav);font-style:italic}
+.quote .pt{font-size:clamp(1.1rem,2.6vw,1.4rem);font-weight:600;margin-top:8px}
+.quote button{margin-top:22px;min-height:44px;padding:0 20px;border-radius:999px;border:1.5px solid var(--lav);background:transparent;color:var(--lav);font:600 .9rem Poppins,sans-serif;cursor:pointer}
+.dict{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:12px;margin-top:36px;text-align:left}
+.dict div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px}
+.dict .kr{font-size:1.3rem;color:var(--pink2)}
+.dict small{display:block;color:var(--muted);font-style:italic}
+
+/* GRUPO */
+.group{padding:clamp(40px,6vw,72px) 0}
+.gbox{background:var(--pink);border-radius:28px;padding:clamp(26px,5vw,48px);display:grid;gap:18px;align-items:center;grid-template-columns:1fr}
+@media(min-width:760px){.gbox{grid-template-columns:1.4fr 1fr}}
+.gbox h2{font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.05}
+.gbox p{margin-top:8px;color:#ffe9f3}
+.gbox .btn{background:#fff;color:var(--pink);justify-self:start}
+@media(min-width:760px){.gbox .btn{justify-self:end}}
+
+.tel{font-weight:700;margin-top:10px;color:#fff}
+.waf{position:fixed;right:16px;bottom:16px;z-index:30;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+footer{border-top:1px solid rgba(255,255,255,.12);padding:28px 0 44px;font-size:.82rem;color:var(--muted)}
+footer p+p{margin-top:8px}
+footer .kr{color:var(--pink2);font-size:1rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top"><svg width="26" height="26" viewBox="0 0 40 40" aria-hidden="true"><use href="#fheart"/></svg>achadinhos<b>koreanos</b> <span class="kr">꿀템</span></a>
+    <a class="ig" href="#" id="igLink">Instagram</a>
+  </div>
+</header>
+
+<!-- símbolo do coração de dedo -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="fheart" viewBox="0 0 40 40">
+    <path d="M20 13c-2.2-4-8-3.4-8 1.2 0 3.6 4.8 6.6 8 9.3 3.2-2.7 8-5.7 8-9.3 0-4.6-5.8-5.2-8-1.2z" fill="#ff4f9a"/>
+    <rect x="11" y="24" width="7" height="13" rx="3.5" fill="#ffd2b8" transform="rotate(-22 14.5 30)"/>
+    <rect x="21" y="23" width="7" height="14" rx="3.5" fill="#f4bf9f" transform="rotate(20 24.5 30)"/>
+  </symbol>
+</svg>
+
+<section class="hero" id="top">
+  <div class="scene" aria-hidden="true">
+    <svg viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#140829"/><stop offset=".55" stop-color="#3a1466"/><stop offset="1" stop-color="#7a2a7e"/></linearGradient>
+        <radialGradient id="moon" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe1ef"/><stop offset=".7" stop-color="#ff9cc9"/><stop offset="1" stop-color="#ff9cc9" stop-opacity="0"/></radialGradient>
+        <linearGradient id="street" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a0f45"/><stop offset="1" stop-color="#12061f"/></linearGradient>
+        <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset=".45" stop-color="#1a0b2e" stop-opacity="0"/><stop offset="1" stop-color="#1a0b2e" stop-opacity=".95"/></linearGradient>
+        <pattern id="win" width="18" height="22" patternUnits="userSpaceOnUse"><rect width="18" height="22" fill="#1e0a36"/><rect x="5" y="6" width="7" height="9" fill="#ffd36e" opacity=".75"/></pattern>
+        <pattern id="win2" width="16" height="20" patternUnits="userSpaceOnUse"><rect width="16" height="20" fill="#261046"/><rect x="4" y="5" width="6" height="8" fill="#c9b6ff" opacity=".6"/></pattern>
+      </defs>
+      <rect width="1200" height="760" fill="url(#sky)"/>
+      <g fill="#fff" opacity=".7"><circle cx="90" cy="70" r="1.6"/><circle cx="260" cy="130" r="1.2"/><circle cx="420" cy="60" r="1.5"/><circle cx="640" cy="110" r="1.1"/><circle cx="1110" cy="90" r="1.6"/><circle cx="980" cy="40" r="1.2"/><circle cx="560" cy="30" r="1.3"/></g>
+      <circle cx="880" cy="190" r="150" fill="url(#moon)" opacity=".55"/>
+      <circle cx="880" cy="190" r="74" fill="#ffd6e8"/>
+      <!-- torre -->
+      <g transform="translate(300 160)"><rect x="-4" y="40" width="8" height="300" fill="#3b1a63"/><ellipse cx="0" cy="40" rx="26" ry="12" fill="#4b2380"/><rect x="-14" y="18" width="28" height="22" rx="6" fill="#ff4f9a"/><rect x="-2" y="-30" width="4" height="48" fill="#4b2380"/><circle cx="0" cy="-32" r="4" fill="#ff8cc0"/></g>
+      <!-- prédios fundo -->
+      <g fill="url(#win2)" opacity=".9"><rect x="0" y="380" width="120" height="380"/><rect x="130" y="420" width="90" height="340"/><rect x="380" y="400" width="110" height="360"/><rect x="560" y="360" width="100" height="400"/><rect x="1040" y="390" width="160" height="370"/></g>
+      <!-- prédios frente com letreiros -->
+      <g fill="url(#win)"><rect x="40" y="470" width="150" height="290"/><rect x="210" y="520" width="120" height="240"/><rect x="680" y="450" width="140" height="310"/><rect x="960" y="500" width="130" height="260"/></g>
+      <g font-family="Black Han Sans, sans-serif" font-size="30" text-anchor="middle">
+        <rect x="58" y="488" width="114" height="44" rx="8" fill="#ff4f9a"/><text x="115" y="520" fill="#fff">카페</text>
+        <rect x="696" y="468" width="108" height="44" rx="8" fill="none" stroke="#7df9ff" stroke-width="3"/><text x="750" y="500" fill="#7df9ff">뷰티</text>
+        <rect x="975" y="518" width="100" height="44" rx="8" fill="none" stroke="#ff8cc0" stroke-width="3"/><text x="1025" y="550" fill="#ff8cc0">사랑</text>
+      </g>
+      <rect y="640" width="1200" height="120" fill="url(#street)"/>
+      <g stroke="#ff8cc0" stroke-width="3" opacity=".35"><line x1="0" y1="700" x2="1200" y2="700" stroke-dasharray="40 30"/></g>
+      <!-- poste -->
+      <g transform="translate(470 420)"><rect x="-4" y="0" width="8" height="230" fill="#4b2380"/><path d="M-4 0 q0 -30 40 -30" stroke="#4b2380" stroke-width="8" fill="none"/><ellipse cx="40" cy="-26" rx="16" ry="8" fill="#ffd36e"/><path d="M24 -20 L-30 230 L110 230 L56 -20z" fill="#ffd36e" opacity=".12"/></g>
+      <!-- casal inventado sob guarda-chuva -->
+      <g transform="translate(590 470)">
+        <ellipse cx="0" cy="182" rx="110" ry="12" fill="#000" opacity=".35"/>
+        <path d="M-115 0 Q0 -95 115 0 Q86 -14 58 0 Q29 -14 0 0 Q-29 -14 -58 0 Q-86 -14 -115 0z" fill="#ff4f9a"/>
+        <path d="M-115 0 Q0 -95 115 0" fill="none" stroke="#ff8cc0" stroke-width="3"/>
+        <rect x="-2" y="-62" width="4" height="150" fill="#2a1630"/>
+        <!-- figura 1 -->
+        <circle cx="-34" cy="42" r="19" fill="#1c0b30"/>
+        <path d="M-58 180 L-52 70 Q-34 58 -16 70 L-10 180z" fill="#1c0b30"/>
+        <path d="M-53 36 q19 -26 38 0 q-6 -20 -19 -20 q-13 0 -19 20z" fill="#1c0b30"/>
+        <!-- figura 2 -->
+        <circle cx="30" cy="36" r="20" fill="#1c0b30"/>
+        <path d="M6 180 L10 64 Q30 52 50 64 L56 180z" fill="#1c0b30"/>
+        <path d="M-10 92 Q0 80 12 88" stroke="#1c0b30" stroke-width="10" stroke-linecap="round" fill="none"/>
+        <path d="M0 18 c-3 -6 -12 -5 -12 2 c0 5 7 9 12 13 c5 -4 12 -8 12 -13 c0 -7 -9 -8 -12 -2z" fill="#ffd6e8" transform="translate(0 -14)"/>
+      </g>
+      <rect width="1200" height="760" fill="url(#fade)"/>
+    </svg>
+  </div>
+  <div class="hero-copy">
+    <span class="ep">에피소드 1 · Episódio 1</span>
+    <h1><span class="kr">어서 오세요!</span><span class="sub">Bem-vinda ao seu dorama de achadinhos</span></h1>
+    <p>Skincare coreano, maquiagem e moda que estão bombando, com link direto pro melhor preço na Shopee e no Mercado Livre.</p>
+    <div class="btns">
+      <a class="btn p" href="#produtos">Ver achadinhos</a>
+      <a class="btn s" href="#frase">Frase do dia 💬</a>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Frases em coreano">
+  <div class="tick-in" id="tick"></div>
+</div>
+
+<section class="shop" id="produtos">
+  <div class="wrap">
+    <div class="head">
+      <h2 class="kr">오늘의 추천<small>Recomendados de hoje</small></h2>
+      <div class="tabs" role="group" aria-label="Filtrar por categoria">
+        <button class="tab" data-f="todos" aria-pressed="true"><span class="kr">전체</span>Todos</button>
+        <button class="tab" data-f="beleza" aria-pressed="false"><span class="kr">뷰티</span>Beleza</button>
+        <button class="tab" data-f="roupas" aria-pressed="false"><span class="kr">패션</span>Moda</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="note">Produtos com "Link em breve" ainda estão sendo selecionados.</p>
+  </div>
+</section>
+
+<section class="quote" id="frase">
+  <div class="wrap">
+    <p class="lbl">Frase do dia · 오늘의 한마디</p>
+    <p class="ko kr" id="qko"></p>
+    <p class="ro" id="qro"></p>
+    <p class="pt" id="qpt"></p>
+    <button id="qnext" type="button">Outra frase ↻</button>
+    <div class="dict" id="dict"></div>
+  </div>
+</section>
+
+<section class="group">
+  <div class="wrap">
+    <div class="gbox">
+      <div>
+        <h2><span class="kr">화이팅!</span> Promoções no seu celular</h2>
+        <p>Chama a gente no WhatsApp pra receber cupons e os achadinhos do dia antes de todo mundo.</p>
+        <p class="tel">WhatsApp da loja: (87) 99928-2925</p>
+      </div>
+      <a class="btn" href="#" id="groupLink">Entrar no grupo do WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<a class="waf" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Falar com a loja no WhatsApp"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-4-.5-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 2.1.9 3 1 4 .8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.1-.3-.2-.6-.3z"/></svg></a>
+<footer>
+  <div class="wrap">
+    <p><span class="kr">사랑해요</span> · Feito com amor pra quem ama dorama e K-beauty.</p>
+    <p><strong>Aviso:</strong> alguns links desta página são de afiliado. Se você comprar por eles, podemos receber uma pequena comissão, sem custo extra pra você. Preços e estoque podem mudar na loja.</p>
+    <p>© <span id="y"></span> Achadinhos Koreanos</p>
+  </div>
+</footer>
+
+<script>
+{
+/* ====== EDITE AQUI ====== */
+const PRODUTOS = [
+  {nome:"Kit skincare: limpeza + sérum + protetor", categoria:"beleza", kr:"스킨케어", motivo:"A rotina completa que mais aparece nos anúncios", preco:"", link:"", loja:"", imagem:"", cor:"linear-gradient(135deg,#ff8cc0,#c9b6ff)"},
+  {nome:"Pads de tônico coreano", categoria:"beleza", kr:"패드", motivo:"Febre do K-beauty pra poros e textura", preco:"", link:"", loja:"", imagem:"", cor:"linear-gradient(135deg,#7df9ff,#c9b6ff)"},
+  {nome:"Sérum com ácido hialurônico", categoria:"beleza", kr:"세럼", motivo:"Hidratação leve pra usar todo dia", preco:"", link:"", loja:"", imagem:"", cor:"linear-gradient(135deg,#ffb38a,#ff4f9a)"},
+  {nome:"Máscara capilar 1 kg", categoria:"beleza", kr:"헤어", motivo:"Rende meses e faz cronograma capilar", preco:"", link:"", loja:"", imagem:"", cor:"linear-gradient(135deg,#c9b6ff,#7a2a7e)"},
+  {nome:"Conjunto fitness canelado", categoria:"roupas", kr:"운동복", motivo:"O queridinho das lojas de moda fitness", preco:"", link:"", loja:"", imagem:"", cor:"linear-gradient(135deg,#ff4f9a,#3a1466)"},
+  {nome:"Legging estampada", categoria:"roupas", kr:"레깅스", motivo:"Modela e não fica transparente", preco:"", link:"", loja:"", imagem:"", cor:"linear-gradient(135deg,#7df9ff,#ff8cc0)"},
+  {nome:"Short fitness meia perna", categoria:"roupas", kr:"반바지", motivo:"Não sobe no treino", preco:"", link:"", loja:"", imagem:"", cor:"linear-gradient(135deg,#ffd36e,#ff4f9a)"},
+  {nome:"Pijama de cetim", categoria:"roupas", kr:"잠옷", motivo:"Lindo, fresquinho e ótimo pra presente", preco:"", link:"", loja:"", imagem:"", cor:"linear-gradient(135deg,#3a1466,#c9b6ff)"}
+];
+const INSTAGRAM = "";      // ex.: "https://instagram.com/achadinhoskoreanos"
+const WHATSAPP_LOJA = "5587999282925"; // número da loja (DDI+DDD+número)
+const GRUPO_WHATSAPP = ""; // link de convite do grupo (quando existir)
+/* ======================== */
+
+const FRASES = [
+  ["사랑해","saranghae","Eu te amo"],
+  ["보고 싶어","bogo sipeo","Estou com saudade"],
+  ["괜찮아","gwaenchana","Tá tudo bem"],
+  ["화이팅!","hwaiting","Força! Você consegue!"],
+  ["대박!","daebak","Que incrível!"],
+  ["예뻐요","yeppeoyo","Você é linda"],
+  ["같이 가요","gachi gayo","Vamos juntos"],
+  ["어서 오세요","eoseo oseyo","Seja bem-vinda"],
+  ["감사합니다","gamsahamnida","Muito obrigada"],
+  ["진짜?","jinjja","Sério?!"],
+  ["내 거야","nae geoya","Você é meu / é minha"],
+  ["행복해","haengbokhae","Estou feliz"],
+  ["꿀템","kkultem","Achadinho que vale ouro"]
+];
+
+const fh='<svg class="fh" viewBox="0 0 40 40" aria-hidden="true"><use href="#fheart"/></svg>';
+const grid=document.getElementById('grid');
+const card=p=>{
+  const ok=!!p.link;
+  const ph=p.imagem?`<img src="${p.imagem}" alt="${p.nome}" loading="lazy">`:`<span class="big">${p.kr}</span>`;
+  return `<article class="card">
+    <div class="ph" style="background:${p.cor}">${ph}${p.loja?`<span class="store">${p.loja}</span>`:''}${fh}</div>
+    <div class="cb">
+      <span class="cat">${p.categoria==='beleza'?'뷰티 · Beleza':'패션 · Moda'}</span>
+      <span class="name">${p.nome}</span>
+      <span class="why">${p.motivo}</span>
+      ${p.preco?`<span class="price">${p.preco}</span>`:''}
+      <a class="buy${ok?'':' soon'}" href="${ok?p.link:'#'}" ${ok?'target="_blank" rel="sponsored noopener"':''}>${ok?'Ver o melhor preço →':'Link em breve'}</a>
+    </div></article>`;
+};
+const render=f=>{grid.innerHTML=PRODUTOS.filter(p=>f==='todos'||p.categoria===f).map(card).join('');};
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-pressed','false'));
+  b.setAttribute('aria-pressed','true');render(b.dataset.f);
+}));
+render('todos');
+
+const t=FRASES.map(f=>`<span><span class="kr">${f[0]}</span> ${f[2]} 💗</span>`).join('');
+document.getElementById('tick').innerHTML=t+t;
+
+let qi=Math.floor(Math.random()*FRASES.length);
+const showQ=()=>{const f=FRASES[qi];document.getElementById('qko').textContent=f[0];document.getElementById('qro').textContent=f[1];document.getElementById('qpt').textContent=f[2];};
+showQ();
+document.getElementById('qnext').addEventListener('click',()=>{qi=(qi+1)%FRASES.length;showQ();});
+document.getElementById('dict').innerHTML=FRASES.slice(0,8).map(f=>`<div><span class="kr">${f[0]}</span><small>${f[1]}</small>${f[2]}</div>`).join('');
+
+if(INSTAGRAM)document.getElementById('igLink').href=INSTAGRAM;
+const wa='https://wa.me/'+WHATSAPP_LOJA+'?text='+encodeURIComponent('Oi! Vim pelo site Achadinhos Koreanos 💗');
+const gl=document.getElementById('groupLink');
+if(GRUPO_WHATSAPP){gl.href=GRUPO_WHATSAPP;}else{gl.href=wa;gl.textContent='Falar com a loja no WhatsApp';gl.target='_blank';gl.rel='noopener';}
+const fw=document.getElementById('waFloat');fw.href=wa;
+document.getElementById('y').textContent=new Date().getFullYear();
+
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const hero=document.querySelector('.hero');
+  for(let i=0;i<18;i++){
+    const p=document.createElement('span');p.className='petal';
+    p.style.left=Math.random()*100+'%';
+    p.style.setProperty('--dx',(Math.random()*160-80)+'px');
+    p.style.animationDuration=(7+Math.random()*7)+'s';
+    p.style.animationDelay=(-Math.random()*12)+'s';
+    p.style.transform='scale('+(0.6+Math.random()*0.7)+')';
+    hero.appendChild(p);
+  }
+}
+}
+</script>
+</body>
+</html>
