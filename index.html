@@ -326,5 +326,35 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
 }
 }
 </script>
+
+<!-- Player de música K-pop -->
+<div id="musicPlayer" style="position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(26,11,46,.95);backdrop-filter:blur(10px);border-top:1px solid rgba(255,79,154,.3);padding:10px 16px;display:flex;align-items:center;gap:12px;font-size:.85rem">
+  <button id="musicToggle" style="background:var(--pink);border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;color:#fff;font-size:18px;flex-shrink:0">▶</button>
+  <div style="flex:1;min-width:0">
+    <div style="font-weight:600;color:var(--cream);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">🎵 너는 나의 봄이야 — Achadinhos Koreanos</div>
+    <div style="color:var(--muted);font-size:.75rem">Trilha sonora da loja</div>
+  </div>
+  <audio id="audioPlayer" loop preload="none">
+    <source src="assets/audio/musica-1.mp3" type="audio/mpeg">
+  </audio>
+  <button id="musicNext" style="background:rgba(255,79,154,.2);border:1px solid var(--pink);border-radius:50%;width:36px;height:36px;cursor:pointer;color:var(--pink);font-size:14px;flex-shrink:0">⏭</button>
+</div>
+<script>
+(function(){
+  const audio=document.getElementById('audioPlayer');
+  const toggle=document.getElementById('musicToggle');
+  const next=document.getElementById('musicNext');
+  const tracks=['assets/audio/musica-1.mp3','assets/audio/musica-2.mp3'];
+  let cur=0,playing=false;
+  function load(i){cur=i;audio.src=tracks[i];audio.load();}
+  toggle.addEventListener('click',()=>{
+    if(playing){audio.pause();toggle.textContent='▶';playing=false;}
+    else{audio.play().catch(()=>{});toggle.textContent='⏸';playing=true;}
+  });
+  next.addEventListener('click',()=>{load((cur+1)%tracks.length);if(playing)audio.play();toggle.textContent=playing?'⏸':'▶';});
+  audio.addEventListener('ended',()=>{load((cur+1)%tracks.length);audio.play();});
+  load(0);
+})();
+</script>
 </body>
 </html>
